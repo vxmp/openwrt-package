@@ -105,11 +105,10 @@ function gen_outbound(node, tag, relay_port)
                 } or nil,
                 wsSettings = (node.transport == "ws") and {
                     path = node.ws_path or "",
-                    headers = (node.ws_host ~= nil) and {
+                    headers = (node.ws_host ~= nil) and
                       {
                          Host = node.ws_host or nil
                       }
-                    }
                 } or nil,
                 httpSettings = (node.transport == "h2") and
                     {path = node.h2_path, host = node.h2_host} or
