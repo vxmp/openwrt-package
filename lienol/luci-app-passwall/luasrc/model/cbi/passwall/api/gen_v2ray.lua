@@ -108,8 +108,7 @@ function gen_outbound(node, tag, relay_port)
                     path = node.ws_path or "",
                     headers = (node.ws_host ~= nil) and {
                       {
-                         Host = node.ws_host or nil,
-                         User-Agent = ua or nil
+                         Host = node.ws_host or nil
                       }
                     }
                 } or nil,
