@@ -106,8 +106,10 @@ function gen_outbound(node, tag, relay_port)
                 wsSettings = (node.transport == "ws") and {
                     path = node.ws_path or "",
                     headers = (node.ws_host ~= nil) and
-                        {Host = node.ws_host,
-                         User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36} or nil
+                        {
+                         Host = node.ws_host,
+                         User-Agent: "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36"
+                        } or nil
                 } or nil,
                 httpSettings = (node.transport == "h2") and
                     {path = node.h2_path, host = node.h2_host} or
