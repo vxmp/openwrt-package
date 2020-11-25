@@ -26,7 +26,7 @@ end
 
 function gen_outbound(node, tag, relay_port)
     local result = nil
-    local ua = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36"
+    local User-Agent = nil
     if node then
         local node_id = node[".name"]
         if tag == nil then
@@ -107,7 +107,8 @@ function gen_outbound(node, tag, relay_port)
                 wsSettings = (node.transport == "ws") and {
                     path = node.ws_path or "",
                     headers = {
-                      Host = node.ws_host
+                      Host = node.ws_host,
+                      User-Agent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36"
                     } or nil
                 } or nil,
                 httpSettings = (node.transport == "h2") and
